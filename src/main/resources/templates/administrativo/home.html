@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{administrativo/fragments/layout}">
+<head>
+    <title>Página principal da loja virtual</title>
+</head>
+<body>
+		<section class="layout-content" layout:fragment="corpo">
+
+			<nav class="navbar navbar-expand-md bg-light">
+				<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active"><i class="oi oi-caret-right"></i>
+							<span>Home</span></li>
+					</ul>
+				</div>
+			</nav>
+
+			<div class="container">
+				<div id="list-home" class="row">
+					<div class="col-4">
+						<div class="list-group" id="list-tab" role="tablist">
+							<a class="list-group-item list-group-item-action active"
+								id="list-spring-boot-list" data-toggle="list"
+								href="#spring-boot" role="tab" aria-controls="spring-boot">Spring-Boot</a>
+							<a class="list-group-item list-group-item-action"
+								id="list-sts-list" data-toggle="list" href="#sts" role="tab"
+								aria-controls="sts">Spring Tool Suite</a> <a
+								class="list-group-item list-group-item-action"
+								id="list-thymeleaf-list" data-toggle="list" href="#thymeleaf"
+								role="tab" aria-controls="thymeleaf">Thymeleaf</a> <a
+								class="list-group-item list-group-item-action"
+								id="list-webjars-list" data-toggle="list" href="#webjars"
+								role="tab" aria-controls="webjars">WebJars</a> <a
+								class="list-group-item list-group-item-action"
+								id="list-hibernate-list" data-toggle="list" href="#hibernate"
+								role="tab" aria-controls="hibernate">Hibernate</a> <a
+								class="list-group-item list-group-item-action"
+								id="list-bootstrap-list" data-toggle="list" href="#bootstrap"
+								role="tab" aria-controls="bootstrap">Bootstrap 4</a>
+						</div>
+					</div>
+					<div class="col-8">
+						<div class="tab-content" id="nav-tabContent">
+							<div class="tab-pane fade show active" id="spring-boot"
+								role="tabpanel" aria-labelledby="list-spring-boot-list">
+								<a href="https://projects.spring.io/spring-boot/">Spring
+									Boot</a> makes it easy to create stand-alone, production-grade
+								Spring based Applications that you can "just run". We take an
+								opinionated view of the Spring platform and third-party
+								libraries so you can get started with minimum fuss. Most Spring
+								Boot applications need very little Spring configuration.
+							</div>
+							<div class="tab-pane fade" id="sts" role="tabpanel"
+								aria-labelledby="list-sts-list">
+								The <a href="https://spring.io/tools">Spring Tool Suite</a> is
+								an Eclipse-based development environment that is customized for
+								developing Spring applications. It provides a ready-to-use
+								environment to implement, debug, run, and deploy your Spring
+								applications, including integrations for Pivotal tc Server,
+								Pivotal Cloud Foundry, Git, Maven, AspectJ, and more.
+							</div>
+							<div class="tab-pane fade" id="thymeleaf" role="tabpanel"
+								aria-labelledby="list-thymeleaf-list">
+								<a href="http://www.thymeleaf.org/">Thymeleaf</a> is a modern
+								server-side Java template engine for both web and standalone
+								environments. With modules for Spring Framework, a host of
+								integrations with your favourite tools, and the ability to plug
+								in your own functionality, Thymeleaf is ideal for modern-day
+								HTML5 JVM web development — although there is much more it can
+								do.
+							</div>
+							<div class="tab-pane fade" id="webjars" role="tabpanel"
+								aria-labelledby="list-webjars-list">
+								<a href="https://www.webjars.org/">WebJars</a> are client-side
+								web libraries (e.g. jQuery ; Bootstrap) packaged into JAR (Java
+								Archive) files.
+							</div>
+							<div class="tab-pane fade" id="hibernate" role="tabpanel"
+								aria-labelledby="list-hibernate-list">
+								<a href="http://hibernate.org/orm/">Hibernate ORM</a> enables
+								developers to more easily write applications whose data outlives
+								the application process. As an Object/Relational Mapping (ORM)
+								framework, Hibernate is concerned with data persistence as it
+								applies to relational databases (via JDBC). <br />In addition
+								to its own "native" API, Hibernate is also an implementation of
+								the Java Persistence API (JPA) specification. As such, it can be
+								easily used in any environment supporting JPA including Java SE
+								applications, Java EE application servers, Enterprise OSGi
+								containers, etc.
+							</div>
+							<div class="tab-pane fade" id="bootstrap" role="tabpanel"
+								aria-labelledby="list-bootstrap-list">
+								<a href="https://getbootstrap.com/">Bootstrap</a> is an open
+								source toolkit for developing with HTML, CSS, and JS. Quickly
+								prototype your ideas or build your entire app with our Sass
+								variables and mixins, responsive grid system, extensive prebuilt
+								components, and powerful plugins built on jQuery.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+</body>
+</html>
