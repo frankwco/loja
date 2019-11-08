@@ -12,6 +12,7 @@
 <meta name="author" content="" />
 <link rel="icon" href="/image/favicon.png" />
 
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 <link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
@@ -36,14 +37,28 @@
 		</nav>
 	</header>
 
-	<div class="layout-main">
+	<div class="layout-main" >
 
 		<aside>
-			<nav class="sidebar sidebar-open">
+			<nav class="sidebar sidebar-open" style="height: 800px">
 				<ul class="nav nav-pills">
 					<li class="nav-item"><a class="nav-link " href="/"> <i
 							class="oi oi-home"></i> <span>Home</span>
 					</a></li>
+				</ul>
+				
+				<ul class="nav nav-pills">
+					<li class="nav-item"><span class="nav-link active">Entrada Produtos</span></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/administrativo/entrada/cadastrar"> <i
+							class="oi oi-plus"></i> <span>Cadastrar </span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/administrativo/entrada/listar"> <i
+							class="oi oi-spreadsheet"></i> <span>Listar </span>
+					</a></li>
+					
+					
 				</ul>
 
 				<ul class="nav nav-pills">
@@ -59,6 +74,51 @@
 					
 					
 				</ul>
+				
+				<ul class="nav nav-pills">
+					<li class="nav-item"><span class="nav-link active">Estados</span></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/administrativo/estados/cadastrar"> <i
+							class="oi oi-plus"></i> <span>Cadastrar </span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/administrativo/estados/listar"> <i
+							class="oi oi-spreadsheet"></i> <span>Listar </span>
+					</a></li>					
+						
+					
+				</ul>
+				
+				<ul class="nav nav-pills">
+					<li class="nav-item"><span class="nav-link active">Cidades</span></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/administrativo/cidades/cadastrar"> <i
+							class="oi oi-plus"></i> <span>Cadastrar </span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/administrativo/cidades/listar"> <i
+							class="oi oi-spreadsheet"></i> <span>Listar </span>
+					</a></li>					
+						
+					
+				</ul>
+				
+				<ul class="nav nav-pills">
+					<li class="nav-item"><span class="nav-link active">Produtos</span></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/administrativo/produtos/cadastrar"> <i
+							class="oi oi-plus"></i> <span>Cadastrar </span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/administrativo/produtos/listar"> <i
+							class="oi oi-spreadsheet"></i> <span>Listar </span>
+					</a></li>					
+						
+					
+				</ul>
+				
+				
+				
 			</nav>
 		</aside>
 
