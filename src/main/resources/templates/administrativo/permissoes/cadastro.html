@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{administrativo/fragments/layout}">
+<head>
+    <title>Página Cadastro de Permissões da loja virtual</title>
+</head>
+<body>
+		<section class="layout-content" layout:fragment="corpo">
+			<div class="page-header">
+				<nav class="navbar navbar-expand-md navbar-top bg-light">
+					<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+						<ul class="navbar-nav">
+							<li class="nav-item active"><i class="oi oi-caret-right"></i>
+								<span>Cadastrar Permissões dos Funcionários</span></li>
+						</ul>
+					</div>
+					<a class="btn btn-primary btn-md"
+						href="/administrativo/permissoes/listar" role="button"> <span
+						class="oi oi-spreadsheet" title="Cadastro" aria-hidden="true"></span>
+						<span>Listar Permissões</span>
+					</a>
+				</nav>
+			</div>
+
+			<div class="container" id="cadastro">
+				<form action="/administrativo/permissoes/salvar" th:object="${permissao}" method="POST">
+					<div class="form-row">
+						
+						<div class="form-group col-md-6">
+							<label >Funcionário</label> 							
+							<select th:field="*{funcionario}"
+									class="form-control">
+									<option th:each="fun: ${listaFuncionarios}"
+										th:value="${fun.id}" th:text="${fun.nome}"></option>
+								</select>
+							
+							<div class="invalid-feedback"></div>
+						</div>
+						
+						<div class="form-group col-md-6">
+							<label >Papel</label> 							
+							<select th:field="*{papel}"
+									class="form-control">
+									<option th:each="papel: ${listaPapeis}"
+										th:value="${papel.id}" th:text="${papel.nome}"></option>
+								</select>
+							
+							<div class="invalid-feedback"></div>
+						</div>
+					
+					</div>
+
+					<input type="hidden" id="id" th:field="*{id}" value="" />
+					<button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+				</form>
+			</div>
+		</section>
+
+	
+</body>
+</html>
