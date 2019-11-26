@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,22 +16,15 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-public class BasicConfiguration extends WebSecurityConfigurerAdapter {
+@Order(2)
+public class SecurityAdministrativo extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private DataSource dataSource;
 
-	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// neste método que vamos tratar os usuários
-		// do banco....
-//		auth.inMemoryAuthentication().withUser("user").password(new BCryptPasswordEncoder().encode("123")).roles("USER")
-//				.and().withUser("admin").password(new BCryptPasswordEncoder().encode("admin")).roles("USER", "ADMIN");
 
 		auth.jdbcAuthentication().dataSource(dataSource)
 				.usersByUsernameQuery(
@@ -43,12 +37,13 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests()
-				.antMatchers("/administrativo/entrada/**").hasAuthority("gerente")
-				.antMatchers("/administrativo/**").hasAnyAuthority("gerente", "vendedor")
-				.and().formLogin().loginPage("/login").permitAll().and().logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/administrativo").and()
-				.exceptionHandling().accessDeniedPage("/negado");
+		http.authorizeRequests().antMatchers("/login").permitAll().antMatchers("/administrativo/cadastrar/**")
+				.hasAnyAuthority("gerente").antMatchers("/administrativo/**").authenticated().and().formLogin()
+				.loginPage("/login").failureUrl("/login").loginProcessingUrl("/admin")
+				.defaultSuccessUrl("/administrativo").usernameParameter("username").passwordParameter("password").and()
+				.logout().logoutRequestMatcher(new AntPathRequestMatcher("/administrativo/logout"))
+				.logoutSuccessUrl("/login").deleteCookies("JSESSIONID").and().exceptionHandling()
+				.accessDeniedPage("/negado").and().csrf().disable();
 
 	}
 
